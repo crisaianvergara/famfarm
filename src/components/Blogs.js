@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import useFetch from "./useFetch";
+import "../styles/Blogs.scss";
 import { Container, Card } from "react-bootstrap";
 
 const Blogs = () => {
@@ -18,17 +20,20 @@ const Blogs = () => {
           explicabo culpa at optio nihil. Minus aliquam voluptatem non pariatur
           hic vitae.
         </p>
+        {isPending && <div>Loading...</div>}
         {error && <div>{error}</div>}
-        {isPending && <p>Loading...</p>}
         {blogs &&
           blogs.map((blog) => (
-            <Card className="my-3" key={blog.id}>
-              <Card.Body>
-                <Card.Title>{blog.title}</Card.Title>
-                <Card.Text>{blog.body}</Card.Text>
-                <p>Written by: {blog.author}</p>
-              </Card.Body>
-            </Card>
+            <div className="blog-preview" key={blog.id}>
+              <Link to={`/blogs/${blog.id}`}>
+                <Card className="my-3">
+                  <Card.Body>
+                    <Card.Title>{blog.title}</Card.Title>
+                    <p>Written by: {blog.author}</p>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </div>
           ))}
       </div>
     </Container>

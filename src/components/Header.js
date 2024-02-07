@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import "../styles/Header.scss";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Cart4 } from "react-bootstrap-icons";
