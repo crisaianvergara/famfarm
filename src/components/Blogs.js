@@ -20,6 +20,9 @@ const Blogs = () => {
           explicabo culpa at optio nihil. Minus aliquam voluptatem non pariatur
           hic vitae.
         </p>
+        <Link to={`/blogs/write`} className="btn btn-primary">
+          Write
+        </Link>
         {isPending && <div>Loading...</div>}
         {error && <div>{error}</div>}
         {blogs &&
